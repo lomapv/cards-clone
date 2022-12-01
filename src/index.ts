@@ -9,6 +9,7 @@ if(process.env.PRODUCTION == "development") {
     })
 }
 
+10/2
 const saveToDBPower = new Queue("save-to-DB-power", {
     redis: {
         host: process.env.REDIS_HOST,
