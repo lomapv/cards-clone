@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model CardID {
+  cardId  String  @id()
+  dataDeCriacao DateTime
+  nomeDoCliente String
+  registroCliente String
+  RGCliente String
+  orgaoEmissorRGCliente String
+  dataEmissaoCliente  DateTime?
+  CNHCliente  String
+  primeiraQualificacaoDoCliente String
+  dataExpiracaoCNH  DateTime?
+  categoriaCNHCliente String
+  clienteDataNascimento DateTime?
+  generoCliente String
+  clienteEmail  String
+  clienteTelefone String
+  clienteTelefoneCelular  String
+  codigoPostalCliente String
+  enderecoCliente String
+  enderecoClienteNumero String?
+  enderecoClienteComplemento  String
+  enderecoClienteBairro String
+  cidadeCliente String
+  estadoCliente String
+  placaVeiculo  String
+  chassiVeiculo String
+  ranavamVeiculo  String
+  tipoVeiculo String
+  marcaVeiculo  String
+  modeloVeiculo String
+  anoModeloVeiculo  Int?
+  anoFabricacaoVeiculo  Int?
+  valorTabelaFIPEVeiculo  Float
+  codigoTabelaFipeVeiculo String
+  tipoDoVeiculo String
+  veiculoCombustivel  String
+  corDoVeiculo  String
+  KMVeiculo String
+  numeroMotorVeiculo  String
+  precoDeAquisicao  Float?
+  precoDoRastreador Float?
+  precoDaMensalidade  Float?
+  cooperativa String
+  vendedorResponsavel String
+  dataDeEnvioHinova String
+  estaArquivado String
+  motivoArquivamento  String
+  statusDoCard  String
+  dataPagamentoConfirmado DateTime?
+  tipoDePagamento String
+  dataDaEspecaoAgendada String
+  dataDaNegociacao  DateTime?
+  limparDataDeInspecao  String?
+  recebimentoDaInspecao String?
+  dataDeFinalizacaoDeInspecao DateTime?
+  dataDeInspecaoNegada DateTime?
+  dataDeEnvioPraHinova  String
+  origemCotacao String
+  origemDoLead  String
+  subOrigemDoLead String
+  vendaAutomatica String
+  temRastreador String
+  temPagamento  String
+  cupomDeDesconto String
+  responsavelSubstituido  String?
+  nomeTabelaPreco String?
+  veiculoPraTrabalho  String
+  telefoneDeTrabalhoCliente String?
+  hash  String?
+  nomeDoPlano String
+  nomeAfiliado  String
+  cpfAfiliado String
+  emailAfiliado String
+  descontoAquisicao String
+  rastreadorDesconto  String
+  descontoPagamentoMensal String
+  descontoValorCotacao  String
+  tags  Tags[]
+}
+
+model Tags {
+  tagId Int @id() @default(autoincrement())
+  tagName String
+  card  CardID  @relation(fields: [cardId], references: [cardId])
+  cardId String
+}
