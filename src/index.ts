@@ -1,7 +1,7 @@
 import power from "./api/power";
 import powerDB from "./database/powerDB";
 import Queue from "bull"
-import dotEnv from "dotenv"
+
 const saveToDBPower = new Queue("save-to-DB-power", {
     redis: {
         host: process.env.REDIS_HOST,
