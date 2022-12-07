@@ -13,11 +13,7 @@ const saveToDBPower = new Queue("save-to-DB-power", {
     }
 });
 
-console.log({
-    host: process.env.REDIS_HOST,
-    password: process.env.REDIS_PASSWD,
-    port: 6379
-})
+console.log(saveToDBPower)
 
 function tryToParseDate(dateString: any) {
     if(isNaN(new Date(dateString).getTime())) return null
