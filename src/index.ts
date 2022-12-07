@@ -1,7 +1,27 @@
 import power from "./api/power";
 import powerDB from "./database/powerDB";
 import Queue from "bull"
+import dotEnv from "dotenv"
+import Redis from "ioredis"
 
+console.log({
+    password: "rYh^24U84U&2",
+    socket: {
+        host: "172.18.0.20",
+        port: 6379
+    }
+})
+
+const redis = new Redis({
+    password: "rYh^24U84U&2",
+    host: "172.18.0.20",
+    port: 6379
+})
+
+console.log(redis)
+
+10/4
+/*
 const saveToDBPower = new Queue("save-to-DB-power", {
     redis: {
         host: process.env.REDIS_HOST,
@@ -129,3 +149,5 @@ async function getDataFromPower(startDate: Date = new Date(new Date().getTime() 
 
 
 getDataFromPower();
+
+*/
