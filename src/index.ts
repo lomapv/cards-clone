@@ -2,15 +2,23 @@ import power from "./api/power";
 import powerDB from "./database/powerDB";
 import Queue from "bull"
 import dotEnv from "dotenv"
-import redis from "redis"
+import Redis from "ioredis"
 
-redis.createClient({
-    password: process.env.REDIS_PASSWD,
+console.log({
+    password: "rYh^24U84U&2",
     socket: {
-        host: process.env.REDIS_HOST,
+        host: "localhost",
         port: 6379
     }
 })
+
+const redis = new Redis({
+    password: "rYh^24U84U&2",
+    host: "localhost",
+    port: 6379
+})
+
+console.log(redis)
 
 10/4
 /*
