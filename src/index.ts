@@ -108,7 +108,7 @@ saveToDBPower.process(async (job, done) => {
 })
 
 async function dist(data: Array<any>, index = 0) {
-    console.log("Dstribuindo os cards")
+    console.log("Dstribuindo os cards", data.length)
     if(index >= data.length) return setTimeout(() => getDataFromPower(), 1200000)
     await saveToDBPower.add(data[index])
     dist(data, index+1);
