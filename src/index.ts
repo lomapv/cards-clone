@@ -2,9 +2,18 @@ import power from "./api/power";
 import powerDB from "./database/powerDB";
 import Queue from "bull"
 import dotEnv from "dotenv"
+import redis from "redis"
 
+redis.createClient({
+    password: process.env.REDIS_PASSWD,
+    socket: {
+        host: process.env.REDIS_HOST,
+        port: 6379
+    }
+})
 
 10/4
+/*
 const saveToDBPower = new Queue("save-to-DB-power", {
     redis: {
         host: process.env.REDIS_HOST,
@@ -12,8 +21,6 @@ const saveToDBPower = new Queue("save-to-DB-power", {
         port: 6379
     }
 });
-
-console.log(saveToDBPower)
 
 function tryToParseDate(dateString: any) {
     if(isNaN(new Date(dateString).getTime())) return null
@@ -134,3 +141,6 @@ async function getDataFromPower(startDate: Date = new Date(new Date().getTime() 
 
 
 getDataFromPower();
+
+*/
+
