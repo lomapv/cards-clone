@@ -3,19 +3,21 @@ import powerDB from "./database/powerDB";
 import Queue from "bull"
 import dotEnv from "dotenv"
 
-if(process.env.PRODUCTION == "development") {
-    dotEnv.config({
-        path: process.cwd()+"/.env"
-    })
-}
 
 10/4
 const saveToDBPower = new Queue("save-to-DB-power", {
     redis: {
         host: process.env.REDIS_HOST,
-        password: process.env.REDIS_PASSWD
+        password: process.env.REDIS_PASSWD,
+        port: 6379
     }
 });
+
+console.log({
+    host: process.env.REDIS_HOST,
+    password: process.env.REDIS_PASSWD,
+    port: 6379
+})
 
 function tryToParseDate(dateString: any) {
     if(isNaN(new Date(dateString).getTime())) return null
