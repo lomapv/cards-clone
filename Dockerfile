@@ -10,7 +10,7 @@ RUN apt-get install xz-utils -y
 
 RUN wget https://nodejs.org/dist/v18.12.1/node-v18.12.1-linux-x64.tar.xz
 
-RUN tar xzf node-v18.12.1-linux-x64.tar.xz --strip-components=1 -C /usr/local
+RUN tar xvf node-v18.12.1-linux-x64.tar.xz --strip-components=1 -C /usr/
 
 RUN rm node-v18.12.1-linux-x64.tar.xz
 
