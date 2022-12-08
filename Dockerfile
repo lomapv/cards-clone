@@ -2,17 +2,17 @@ FROM ubuntu
 
 WORKDIR /usr/cardsClone
 
-RUN sudo apt-get update
+RUN apt-get update
 
-RUN sudo apt-get install wget
+RUN apt-get install wget
 
 RUN wget https://nodejs.org/dist/v18.12.1/node-v18.12.1-linux-x64.tar.xz
 
-RUN sudo tar xf node-v18.12.1-linux-x64.tar.xz --strip-components=2 -C /usr/local
+RUN tar xf node-v18.12.1-linux-x64.tar.xz --strip-components=2 -C /usr/local
 
 RUN rm node-v18.12.1-linux-x64.tar.xz
 
-run sudo apt-get update
+run apt-get update
 
 COPY . .
 
