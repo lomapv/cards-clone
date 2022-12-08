@@ -6,9 +6,11 @@ RUN apt-get update -y
 
 RUN apt-get install wget -y
 
+RUN apt-get install xzutils -y
+
 RUN wget https://nodejs.org/dist/v18.12.1/node-v18.12.1-linux-x64.tar.xz
 
-RUN tar xf node-v18.12.1-linux-x64.tar.xz --strip-components=2 -C /
+RUN tar xf node-v18.12.1-linux-x64.tar.xz --strip-components=2 -C /usr/local
 
 RUN rm node-v18.12.1-linux-x64.tar.xz
 
